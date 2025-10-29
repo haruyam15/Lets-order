@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <MenuPage />,
   },
   {
-    path: '/detail',
+    path: '/detail/:menuId',
     element: <DetailPage />,
   },
   {

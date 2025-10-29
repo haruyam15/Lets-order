@@ -1,3 +1,4 @@
+import FixedButton from '@/components/common/FixedButton';
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
@@ -153,9 +154,7 @@ export function DetailPage() {
         </div>
       </div>
 
-      <div className="sticky bottom-0 w-full p-5">
-        <Button className="w-full py-6 text-lg">3개 10000원 담기</Button>
-      </div>
+      <FixedButton>3개 10,000원 담기</FixedButton>
     </div>
   );
 }
