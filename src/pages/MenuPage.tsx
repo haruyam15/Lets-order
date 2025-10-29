@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export function MenuPage() {
   return (
-    <div className="flex flex-col w-full h-screen mx-3 md:w-2xl">
+    <div className="flex flex-col w-full h-screen px-3 md:w-2xl">
       <h1 className="mt-5 mb-10 text-2xl font-bold">프론트엔드 자판기</h1>
 
       <div className="flex-1 min-h-0">

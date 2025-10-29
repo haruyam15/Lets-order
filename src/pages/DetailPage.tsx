@@ -1,5 +1,7 @@
+import BackButton from '@/components/common/BackButton';
+import Counter from '@/components/common/Counter';
 import FixedButton from '@/components/common/FixedButton';
-import { Button } from '@/components/ui/button';
+
 import {
   Drawer,
   DrawerContent,
@@ -8,7 +10,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { Separator } from '@/components/ui/separator';
-import { Check, ChevronLeft, Minus, Plus } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const checked = 'text-orange-400';
@@ -16,12 +18,9 @@ const selected = 'border-2 border-orange-400 bg-white';
 
 export function DetailPage() {
   return (
-    <div>
-      <div className="sticky top-0 bg-white">
-        <NavLink to="/menu" className="mt-3 size-10 md:size-15">
-          <ChevronLeft className="md:size-15 size-10" />
-        </NavLink>
-      </div>
+    <div className="flex flex-col w-full h-screen md:w-2xl">
+      <BackButton path="/menu" />
+
       <div className="w-full px-3">
         <div className="w-full h-[200px] overflow-hidden mt-2 mb-5">
           <img
@@ -40,15 +39,7 @@ export function DetailPage() {
 
         <div className="flex justify-between mt-9">
           <p className="text-xl font-semibold text-gray-800">3500원</p>
-          <div className="flex items-center gap-3">
-            <Button className="size-10" variant="secondary">
-              <Minus />
-            </Button>
-            <p>1</p>
-            <Button className="size-10" variant="secondary">
-              <Plus />
-            </Button>
-          </div>
+          <Counter />
         </div>
       </div>
 

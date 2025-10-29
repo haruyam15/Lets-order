@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="flex justify-center w-full text-lg">
+    <div className="flex flex-col items-center justify-center w-full text-lg">
       <Routes />
     </div>
   );
