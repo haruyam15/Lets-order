@@ -154,7 +154,9 @@ export function DetailPage() {
         </div>
       </div>
 
-      <FixedButton>3개 10,000원 담기</FixedButton>
+      <FixedButton>
+        <NavLink to="/menu">3개 10,000원 담기</NavLink>
+      </FixedButton>
     </div>
   );
 }

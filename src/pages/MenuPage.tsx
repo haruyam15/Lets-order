@@ -165,7 +165,9 @@ export function MenuPage() {
           </div>
         </Tabs>
       </div>
-      <FixedButton>3개 10,000원 장바구니 보기</FixedButton>
+      <FixedButton>
+        <NavLink to="/cart">3개 10,000원 장바구니 보기</NavLink>
+      </FixedButton>
     </div>
   );
 }
