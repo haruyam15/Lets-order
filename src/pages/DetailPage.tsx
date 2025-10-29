@@ -8,17 +8,20 @@ import {
 } from '@/components/ui/drawer';
 import { Separator } from '@/components/ui/separator';
 import { Check, ChevronLeft, Minus, Plus } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+
+const checked = 'text-orange-400';
+const selected = 'border-2 border-orange-400 bg-white';
 
 export function DetailPage() {
   return (
     <div>
+      <div className="sticky top-0 bg-white">
+        <NavLink to="/menu" className="mt-3 size-10 md:size-15">
+          <ChevronLeft className="md:size-15 size-10" />
+        </NavLink>
+      </div>
       <div className="w-full px-3">
-        <div className="sticky top-0 bg-white">
-          <Button variant="ghost" className="mt-3 size-10 md:size-15">
-            <ChevronLeft className="md:size-15 size-10" />
-          </Button>
-        </div>
-
         <div className="w-full h-[200px] overflow-hidden mt-2 mb-5">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
@@ -53,9 +56,17 @@ export function DetailPage() {
       <div className="w-full px-3">
         <p className="text-lg font-semibold">난이도</p>
         <ul className="grid grid-cols-2 gap-2 my-5 text-base">
-          <li className="py-5 text-center rounded-md bg-secondary">초급</li>
-          <li className="py-5 text-center rounded-md bg-secondary">중급</li>
-          <li className="py-5 text-center rounded-md bg-secondary">고급</li>
+          <li
+            className={`py-5 text-center rounded-md cursor-pointer hover:opacity-80 ${selected}`}
+          >
+            <button>초급</button>
+          </li>
+          <li className="py-5 text-center rounded-md cursor-pointer bg-secondary hover:opacity-80">
+            <button>중급</button>
+          </li>
+          <li className="py-5 text-center rounded-md cursor-pointer bg-secondary hover:opacity-80">
+            <button>고급</button>
+          </li>
         </ul>
       </div>
 
@@ -64,16 +75,16 @@ export function DetailPage() {
       <div className="w-full px-3">
         <p className="text-lg font-semibold">추가 학습(최대 2개)</p>
         <ul className="flex flex-col gap-5 my-5 text-base">
-          <li className="flex items-center justify-between">
+          <li className="flex items-center justify-between cursor-pointer">
             <div>
               <p>면접 질문 세트</p>
               <span className="text-sm text-zinc-600">+ 0원</span>
             </div>
             <div>
-              <Check className="text-orange-400" />
+              <Check className={checked} />
             </div>
           </li>
-          <li className="flex items-center justify-between">
+          <li className="flex items-center justify-between cursor-pointer">
             <div>
               <p>시각화 다이어그램</p>
               <span className="text-sm text-zinc-600">+ 500원</span>
@@ -82,7 +93,7 @@ export function DetailPage() {
               <Check className="text-zinc-300" />
             </div>
           </li>
-          <li className="flex items-center justify-between">
+          <li className="flex items-center justify-between cursor-pointer">
             <div>
               <p>퀴즈 10문항</p>
               <span className="text-sm text-zinc-600">+ 500원</span>
@@ -91,7 +102,7 @@ export function DetailPage() {
               <Check className="text-zinc-300" />
             </div>
           </li>
-          <li className="flex items-center justify-between">
+          <li className="flex items-center justify-between cursor-pointer">
             <div>
               <p>심화 링크 모음</p>
               <span className="text-sm text-zinc-600">+ 1000원</span>
@@ -108,34 +119,42 @@ export function DetailPage() {
       <div className="w-full px-3">
         <p className="text-lg font-semibold">학습 형태</p>
 
-        <Drawer>
-          <DrawerTrigger>옵션을 선택해주세요</DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle>학습 형태를 선택해주세요</DrawerTitle>
-            </DrawerHeader>
-            <ul className="flex flex-col gap-5 px-5 my-5 text-base">
-              <li className="flex items-center justify-between">
-                <div>
-                  <p>요약 리딩</p>
-                  <span className="text-sm text-zinc-600">+ 0원</span>
-                </div>
-              </li>
-              <li className="flex items-center justify-between">
-                <div>
-                  <p>핵심 예제</p>
-                  <span className="text-sm text-zinc-600">+ 500원</span>
-                </div>
-              </li>
-              <li className="flex items-center justify-between">
-                <div>
-                  <p>프로젝트 실습</p>
-                  <span className="text-sm text-zinc-600">+ 1000원</span>
-                </div>
-              </li>
-            </ul>
-          </DrawerContent>
-        </Drawer>
+        <div className="my-5">
+          <Drawer>
+            <DrawerTrigger className="w-full px-2 py-2 text-sm text-left border rounded-md cursor-pointer bg-zinc-50 text-zinc-500">
+              옵션을 선택해주세요
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>학습 형태를 선택해주세요</DrawerTitle>
+              </DrawerHeader>
+              <ul className="flex flex-col gap-5 px-5 my-5 text-base">
+                <li className="flex items-center justify-between">
+                  <button className="block w-full text-left">
+                    <p>요약 리딩</p>
+                    <span className="text-sm text-zinc-600">+ 0원</span>
+                  </button>
+                </li>
+                <li className="flex items-center justify-between">
+                  <button className="block w-full text-left">
+                    <p>핵심 예제</p>
+                    <span className="text-sm text-zinc-600">+ 500원</span>
+                  </button>
+                </li>
+                <li className="flex items-center justify-between">
+                  <button className="block w-full text-left">
+                    <p>프로젝트 실습</p>
+                    <span className="text-sm text-zinc-600">+ 1000원</span>
+                  </button>
+                </li>
+              </ul>
+            </DrawerContent>
+          </Drawer>
+        </div>
+      </div>
+
+      <div className="sticky bottom-0 w-full p-5">
+        <Button className="w-full py-6 text-lg">3개 10000원 담기</Button>
       </div>
     </div>
   );
