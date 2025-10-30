@@ -1,6 +1,6 @@
-import BackButton from '@/components/common/BackButton';
 import Counter from '@/components/common/Counter';
 import FixedButton from '@/components/common/FixedButton';
+import Title from '@/components/common/Title';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 export function CartPage() {
   return (
     <div className="flex flex-col w-full h-screen md:w-2xl">
-      <BackButton path="/menu" title="장바구니"></BackButton>
+      <Title text="장바구니" backBtn={true} path="/menu" />
 
       <div className="flex-1 w-full min-h-0 px-3 overflow-y-auto">
         <ul className="flex flex-col gap-10 mt-3">

@@ -1,6 +1,6 @@
-import BackButton from '@/components/common/BackButton';
 import Counter from '@/components/common/Counter';
 import FixedButton from '@/components/common/FixedButton';
+import Title from '@/components/common/Title';
 
 import {
   Drawer,
@@ -19,7 +19,7 @@ const selected = 'border-2 border-orange-400 bg-white';
 export function DetailPage() {
   return (
     <div className="flex flex-col w-full h-screen md:w-2xl">
-      <BackButton path="/menu" />
+      <Title backBtn={true} path="/menu" />
 
       <div className="w-full px-3">
         <div className="w-full h-[200px] overflow-hidden mt-2 mb-5">
