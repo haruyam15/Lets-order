@@ -1,31 +1,28 @@
 import { supabase } from '@/lib/supabase';
+import type { Category, CategoryData, Item } from '@/types';
 
-export interface Item {
-  id: number;
-  category: string;
-  title: string;
-  price: number;
-  icon_img: string;
-}
-
-export async function fetchCategories(): Promise<string[]> {
+export async function fetchCategories(): Promise<CategoryData[]> {
   const { data, error } = await supabase
     .schema('catalog') // ✅ catalog 스키마 지정
     .from('categories') // ✅ 원본 테이블
-    .select('name')
+    .select('name, id')
     .order('id', { ascending: true });
 
   if (error) throw error;
-  return (data ?? []).map((r: { name: string }) => r.name);
+  return data ?? [];
 }
 
-export async function fetchItems(): Promise<Item[]> {
-  const { data, error } = await supabase
-    .schema('catalog') // ✅ catalog 스키마 지정
-    .from('items') // ✅ items 테이블
+export async function fetchItems(category: Category): Promise<Item[]> {
+  let query = supabase
+    .schema('catalog')
+    .from('items')
     .select('id, category, title, price, icon_img')
     .order('id', { ascending: true });
 
+  query = query.eq('category', category);
+
+  const { data, error } = await query;
   if (error) throw error;
+
   return data ?? [];
 }
